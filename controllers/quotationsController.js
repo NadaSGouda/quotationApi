@@ -26,7 +26,7 @@ class quotationsController{
     }
 
     static async deletequotation(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await quotationModel.deletequotation(id);
             if(result){
@@ -38,7 +38,7 @@ class quotationsController{
     }
 
     static async getSpecificquotation(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await quotationModel.getSpecificquotation(id);
             if(result){
@@ -61,7 +61,7 @@ class quotationsController{
     }
 
     static async editQuotation(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         const customer_id = req.body.customer_id;
         const quotation_status = req.body.quotation_status;
         const activity_id =  req.body.activity_id;
