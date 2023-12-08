@@ -36,7 +36,7 @@ class customersController{
     }
 
     static async getSpecificCustomer(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await customerModel.getSpecificCustomer(id);
             if(result){
