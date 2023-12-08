@@ -24,7 +24,7 @@ class customersController{
     }
 
     static async deleteCustomer(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await customerModel.deleteCustomer(id);
             if(result){
@@ -46,7 +46,7 @@ class customersController{
     }
 
     static async editCustomer(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         const newarname = req.body.customer_arname;
         const newenname = req.body.customer_enname;
         const newactivityid = req.body.activity_id;
