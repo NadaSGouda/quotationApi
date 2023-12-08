@@ -17,23 +17,40 @@ class quotationsController{
         var submissionDate = req.body.submission_date;
         var quotationExp = req.body.quotation_explanation;
         var attachedFiles = req.body.attached_files;
-        var result = await quotationModel.addNewquotation(customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles);
-        if(result){
-            res.send("added successfully")
-        }else{
-            res.send("added failed")
+        
+        if (customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles) {
+            try {
+              var result =  quotationModel.addNewquotation(customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles);
+              if (result) {
+                res.status(200).json({ status: 'success', message: 'Added successfully' });
+              } else {
+                res.status(400).json({ status: 'error', message: 'Add failed' });
+              }
+            } catch (error) {
+              console.error(error);
+              res.status(500).json({ status: 'error', message: 'Internal server error' });
+            }
+        } else {
+            res.status(400).json({ status: 'error', message: 'Invalid request' });
         }
     }
 
     static async deletequotation(req, res){
         const id = req.params.id;
-        if(id){
-            var result = await quotationModel.deletequotation(id);
-            if(result){
-                res.send("deleted successfully")
-            }else{
-                res.send("failed")
+        if (id) {
+            try {
+              var result = await quotationModel.deletequotation(id);
+              if (result) {
+                res.status(200).json({ status: 'success', message: 'Deleted successfully' });
+              } else {
+                res.status(400).json({ status: 'error', message: 'Delete failed' });
+              }
+            } catch (error) {
+              console.error(error);
+              res.status(500).json({ status: 'error', message: 'Internal server error' });
             }
+        } else {
+            res.status(400).json({ status: 'error', message: 'Invalid request' });
         }
     }
 
@@ -60,7 +77,7 @@ class quotationsController{
         }
     }
 
-    static async editQuotation(req, res){
+     static async editQuotation(req, res){
         const id = req.params.id;
         const customer_id = req.body.customer_id;
         const quotation_status = req.body.quotation_status;
@@ -71,13 +88,21 @@ class quotationsController{
         const quotation_explanation = req.body.quotation_explanation;
         const attached_files = req.body.attached_files;
 
-        var request = await quotationModel.editmyQuotation( customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files, id);
-        if(request){
-            res.send("edited successfuly")
-        }else{
-            res.send("failed")
+        if (id) {
+            try {
+              var result = await quotationModel.editmyQuotation( customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files, id);
+              if (result) {
+                res.status(200).json({ status: 'success', message: 'Updated successfully' });
+              } else {
+                res.status(400).json({ status: 'error', message: 'Update failed' });
+              }
+            } catch (error) {
+              console.error(error);
+              res.status(500).json({ status: 'error', message: 'Internal server error' });
+            }
+        } else {
+            res.status(400).json({ status: 'error', message: 'Invalid request' });
         }
-        
     }
     
     
