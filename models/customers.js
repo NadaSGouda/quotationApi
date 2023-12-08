@@ -51,7 +51,7 @@ class customerModel{
         })
     }
 
-    static async editCustomer( newarname, newenname, newactivityid, newaddress, newphone, newnotes, id){
+    static async editCustomer(id, newarname, newenname, newactivityid, newaddress, newphone, newnotes){
         return new Promise (resolve =>{
             db.query("UPDATE customers SET customer_arname=?, customer_enname = ?, activity_id = ?, customer_address =?, customer_phone = ?, notes = ? WHERE customer_id = ?", [newarname, newenname, newactivityid, newaddress, newphone, newnotes, id], (res, err)=>{
                 if(!err){
