@@ -12,7 +12,7 @@ router.get("/", (req, res, next)=>{
 router.get("/customers", customerController.getAllCustomers)
 router.post("/addCustomer", customerController.addNewCustomer)
 router.post("/deleteCustomer", customerController.deleteCustomer)
-router.get("/getSpecificCustomer", customerController.getSpecificCustomer)
+router.get("/getSpecificCustomer/:id", customerController.getSpecificCustomer)
 router.post("/editCustomer", customerController.editCustomer)
 
 router.get("/activities", activitiesController.getAllactivities)
