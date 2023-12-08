@@ -19,7 +19,7 @@ class employeesController{
     }
 
     static async deleteemployee(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await employeeModel.deleteemployee(id);
             if(result){
@@ -31,7 +31,7 @@ class employeesController{
     }
 
     static async getSpecificemployee(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         if(id){
             var result = await employeeModel.getSpecificemployee(id);
             if(result){
@@ -41,7 +41,7 @@ class employeesController{
     }
 
     static async editEmployee(req, res){
-        const id = req.body.id;
+        const id = req.params.id;
         const newEmployeename = req.body.employee_name;
 
         var result = await employeeModel.editEmployee( newEmployeename, id);
