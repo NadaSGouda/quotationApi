@@ -23,16 +23,25 @@ class customersController{
         }
     }
 
-    static async deleteCustomer(req, res){
+   static async deleteCustomer(req, res) {
         const id = req.params.id;
-        if(id){
-            var result = await customerModel.deleteCustomer(id);
-            if(result){
-                res.send("deleted successfully")
-            }else{
-                res.send("failed")
+      
+        if (id) {
+          try {
+            const result = await customerModel.deleteCustomer(id);
+      
+            if (result) {
+              res.status(200).json({ status: 'success', message: 'Deleted successfully' });
+            } else {
+              res.status(400).json({ status: 'error', message: 'Deletion failed' });
             }
-        }
+          } catch (error) {
+            console.error(error);
+            res.status(500).json({ status: 'error', message: 'Internal server error' });
+          }
+        } else {
+          res.status(400).json({ status: 'error', message: 'Invalid request: Missing ID'});
+        }
     }
 
     static async getSpecificCustomer(req, res){
