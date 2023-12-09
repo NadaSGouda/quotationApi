@@ -13,7 +13,7 @@ router.get("/customers", customerController.getAllCustomers)
 router.post("/addCustomer", customerController.addNewCustomer)
 router.get("/deleteCustomer/:id", customerController.deleteCustomer)
 router.get("/getSpecificCustomer/:id", customerController.getSpecificCustomer)
-router.post("/editCustomer/:id", customerController.editCustomer)
+router.put("/editCustomer/:id", customerController.editCustomer)
 
 router.get("/activities", activitiesController.getAllactivities)
 router.post("/addActivity", activitiesController.addNewactivity)
