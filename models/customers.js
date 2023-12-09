@@ -53,15 +53,15 @@ class customerModel{
     }
 
     static async editCustomer( newarname, newenname, newactivityid, newaddress, newphone, newnotes, id){
-        return new Promise (async resolve =>{
+        return new Promise (resolve =>{
             try{
-                const result = await db.query("UPDATE customers SET customer_arname=?, customer_enname = ?, activity_id = ?, customer_address =?, customer_phone = ?, notes = ? WHERE customer_id = ?", [newarname, newenname, newactivityid, newaddress, newphone, newnotes, id], (res, err)=>{
-                    if(!result.error){
-                        resolve(true)
-                    }else{
-                        console.error(result.error);
-                        resolve(false)
-                    }
+                const result = db.query("UPDATE customers SET customer_arname=?, customer_enname = ?, activity_id = ?, customer_address =?, customer_phone = ?, notes = ? WHERE customer_id = ?", [newarname, newenname, newactivityid, newaddress, newphone, newnotes, id], (res, err)=>{
+                if(result){
+                    resolve(true)
+                }else{
+                    console.error(result.error);
+                    resolve(false)
+                }
                 })
             }catch(error){
                 console.error(error);
