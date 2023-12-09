@@ -75,7 +75,7 @@ class customersController{
       
         if (id) {
           try {
-            const result = await customerModel.editCustomer(id, [newarname, newenname, newactivityid, newaddress, newphone, newnotes]);
+            const result = await customerModel.editCustomer(id, newarname, newenname, newactivityid, newaddress, newphone, newnotes);
       
             if (result) {
               res.status(200).json({ status: 'success', message: 'Updated successfully' });
