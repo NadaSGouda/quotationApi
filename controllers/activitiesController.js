@@ -30,14 +30,6 @@ class activitiesController{
 
     static async deleteactivity(req, res){
         const id = req.params.id;
-        if(id){
-            var result = await activityModel.deleteactivity(id);
-            if(result){
-                res.send("deleted successfully")
-            }else{
-                res.send("failed")
-            }
-        }
         if (id) {
             try {
               var result = await activityModel.deleteactivity(id);
