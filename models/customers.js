@@ -11,7 +11,6 @@ class customerModel{
                     console.error("error", error);
                     reject(error)
                 }
-                db.close();
             })
         })
     }
