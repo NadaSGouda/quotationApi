@@ -8,8 +8,10 @@ class customerModel{
                 if(!error){
                     resolve(result)
                 }else{
-                    console.error("error", error)
+                    console.error("error", error);
+                    reject(error)
                 }
+                db.close();
             })
         })
     }
