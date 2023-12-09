@@ -3,7 +3,7 @@ class customerModel{
 
     static async getAllCustomers()
     {
-        return new Promise(resolve => {
+        return new Promise((resolve, reject) => {
             db.query("select * from customers", [], (error, result) => {
                 if(!error){
                     resolve(result)
