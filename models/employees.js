@@ -53,7 +53,7 @@ class employeeModel{
 
     static async editEmployee( id, newemployeename){
         return new Promise (resolve =>{
-            db.query("UPDATE employees SET employee_name=? WHERE employee_id = ?", [newemployeename, id], (res, err)=>{
+            db.query("UPDATE employees SET employee_name=? WHERE employee_id = ?", newemployeename, id, (res, err)=>{
                 if(!err){
                     resolve(true)
                 }
