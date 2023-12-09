@@ -59,7 +59,7 @@ class employeesController{
         const id = req.params.id;
         const newEmployeename = req.body.employee_name;
 
-        if (id, newEmployeename) {
+        if (id && newEmployeename) {
             try {
                 var result = await employeeModel.editEmployee( newEmployeename, id);
               if (result) {
