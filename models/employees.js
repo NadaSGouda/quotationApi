@@ -56,6 +56,9 @@ class employeeModel{
             db.query("UPDATE employees SET employee_name=? WHERE employee_id = ?",[newemployeename, id], (res, err)=>{
                 if(!err){
                     resolve(true)
+                }else{
+                    console.log(err);
+                    resolve(false)
                 }
             })
         })
