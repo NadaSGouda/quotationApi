@@ -19,19 +19,19 @@ router.get("/activities", activitiesController.getAllactivities)
 router.post("/addActivity", activitiesController.addNewactivity)
 router.get("/deleteActivity/:id", activitiesController.deleteactivity)
 router.get("/getSpecificActivity/:id", activitiesController.getSpecificactivity)
-router.post("/editActivity/:id", activitiesController.editactivity)
+router.put("/editActivity/:id", activitiesController.editactivity)
 
 router.get("/employees", employeesController.getAllemployees)
 router.post("/addEmployee", employeesController.addNewEmployee)
 router.get("/deleteEmployee/:id", employeesController.deleteemployee)
 router.get("/getSpecificEmployee/:id", employeesController.getSpecificemployee)
-router.post("/editEmployee/:id", employeesController.editEmployee)
+router.put("/editEmployee/:id", employeesController.editEmployee)
 
 router.get("/quotations", quotationsController.getAllquotations)
 router.post("/addQuotation", quotationsController.addNewquotation)
 router.get("/deleteQuotation/:id", quotationsController.deletequotation)
 router.get("/getSpecificQuotation/:id", quotationsController.getSpecificquotation)
-router.post("/editQuotation/:id", quotationsController.editQuotation)
+router.put("/editQuotation/:id", quotationsController.editQuotation)
 router.get("/searchQuotation", quotationsController.searchQuotation)
 
 module.exports = router;
