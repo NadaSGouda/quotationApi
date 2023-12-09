@@ -10,7 +10,6 @@ class employeesController{
 
    static async addNewEmployee(req, res){
         var employee_name = req.body.employee_name;
-        var result = await employeeModel.addNewemployee(employee_name);
         if (employee_name) {
             try {
               var result = await employeeModel.addNewemployee(employee_name);
