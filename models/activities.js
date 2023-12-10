@@ -53,11 +53,19 @@ class activityModel{
 
     static async editactivity( id, newactivityname, newnotes){
         return new Promise (resolve =>{
-            db.query("UPDATE activities SET activity_name=?, notes = ? WHERE activity_id = ?", [newactivityname, newnotes, id], (res, err)=>{
-                if(!err){
+            try{
+                const result = db.query("UPDATE activities SET activity_name=?, notes = ? WHERE activity_id = ?", [newactivityname, newnotes, id], (res, err)=>{
+                if(result){
                     resolve(true)
+                }else{
+                    console.error(result.error);
+                    resolve(false)
                 }
-            })
+                })
+            }catch(error){
+                console.error(error);
+                resolve(false)
+            }
         })
     }
 }
