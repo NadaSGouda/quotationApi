@@ -67,12 +67,14 @@ class quotationModel{
 
     static async editmyQuotation( customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files, id){
         return new Promise (resolve =>{
-            db.query("UPDATE quotations SET customer_id=?, quotation_status = ?, activity_id = ?, request_date =?, quotation_date = ?, submission_date = ?, quotation_explanation =?, attached_files =?  WHERE quotation_id = ?", [customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files, id], (res, err)=>{
-                if(err){
-                    resolve(false)
-                }else{
+            const result = db.query("UPDATE quotations SET customer_id=?, quotation_status = ?, activity_id = ?, request_date =?, quotation_date = ?, submission_date = ?, quotation_explanation =?, attached_files =?  WHERE quotation_id = ?", [customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files, id], (res, err)=>{
+                if(result){
                     resolve(true)
+                }else{
+                    console.error(result.error);
+                    resolve(false)
                 }
+            })
             })
         })
     }
