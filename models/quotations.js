@@ -75,7 +75,7 @@ class quotationModel{
                     resolve(false)
                 }
             })
-            })
+            
         })
     }
 
