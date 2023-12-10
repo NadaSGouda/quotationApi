@@ -51,7 +51,7 @@ class employeeModel{
         })
     }
 
-    static async editEmployee( id, newemployeename){
+    static async editEmployee( newemployeename, id){
         return new Promise (resolve =>{
              const result =  db.query("UPDATE employees SET employee_name=? WHERE employee_id = ?",[newemployeename, id], (res, err)=>{
                 if(result){
