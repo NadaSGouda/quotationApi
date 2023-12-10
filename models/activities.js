@@ -51,7 +51,7 @@ class activityModel{
         })
     }
 
-    static async editactivity( id, newactivityname, newnotes){
+    static async editactivity( newactivityname, newnotes, id){
         return new Promise (resolve =>{
             try{
                 const result = db.query("UPDATE activities SET activity_name=?, notes = ? WHERE activity_id = ?", [newactivityname, newnotes, id], (res, err)=>{
