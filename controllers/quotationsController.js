@@ -66,9 +66,9 @@ class quotationsController{
 
 
     static async searchQuotation(req, res){
-        const status = req.body.status;
-        const startDate = req.body.startDate;
-        const endDate = req.body.endDate;
+        const status = req.params.status;
+        const startDate = req.params.startDate;
+        const endDate = req.params.endDate;
         if(startDate, endDate, status){
             var result = await quotationModel.searchQuotation(startDate, endDate, status);
             if(result){
