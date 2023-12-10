@@ -41,7 +41,7 @@ class quotationModel{
 
     static async addNewquotation(customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles){
         return new Promise(resolve => {
-            const result = db.query("INSERT INTO quotations (customer_id, quotation_status, activity_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles], (err, res)=>{
+            const result = db.query("INSERT INTO quotations (customer_id, quotation_status, employee_id, request_date, quotation_date, submission_date, quotation_explanation, attached_files) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", [customer, status, activity, requestDate, quotationDate, submissionDate, quotationExp, attachedFiles], (err, res)=>{
                 if(result){
                     resolve(true)
                 }else{
